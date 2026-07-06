@@ -20,33 +20,21 @@ publications.
 - Logs to both console and `logs/app.log`.
 
 ## Project Structure
-app.py
 
-services/
+├── app.py              # Main Flask application entry point
+├── services/           # Backend logic
+│   ├── scholar_scraper.py # Selenium-based Google Scholar scraper
+│   ├── preprocess.py      # Text cleaning and NLP preprocessing
+│   └── retrieval.py       # TF-IDF, cosine similarity, and ranking logic
+├── templates/          # HTML files
+│   ├── index.html      # Search homepage
+│   └── results.html    # Search results display
+├── static/             # CSS and styling
+│   └── style.css
+├── logs/               # Application logs
+│   └── app.log
+└── requirements.txt    # Project dependencies 
 
-scholar_scraper.py # Selenium-based Google Scholar scraper
-
-preprocess.py # Text cleaning / preprocessing
-
-retrieval.py # TF-IDF, cosine similarity, ranking logic
-
-templates/
-
-index.html
-
-results.html
-
-static/
-
-style.css
-
-logs/
-
-app.log
-
-requirements.txt
-
-README.md
 
 ## Setup
 1. Create and activate a virtual environment:
