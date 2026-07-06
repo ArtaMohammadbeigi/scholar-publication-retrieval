@@ -21,6 +21,7 @@ publications.
 
 ## Project Structure
 
+```text
 ├── app.py              # Main Flask application entry point
 ├── services/           # Backend logic
 │   ├── scholar_scraper.py # Selenium-based Google Scholar scraper
@@ -33,8 +34,8 @@ publications.
 │   └── style.css
 ├── logs/               # Application logs
 │   └── app.log
-└── requirements.txt    # Project dependencies 
-
+└── requirements.txt    # Project dependencies
+```
 
 ## Setup
 1. Create and activate a virtual environment:
