@@ -1,0 +1,56 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scholar Publication Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Google Scholar Publication Retrieval</h1>
+        <p class="subtitle">
+            Enter a professor's name and a search query to find their most relevant publications.
+        </p>
+
+        {% if error %}
+        <div class="alert alert-error">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="{{ url_for('search') }}" class="search-form">
+            <div class="form-group">
+                <label for="professor_name">Professor Name</label>
+                <input
+                    type="text"
+                    id="professor_name"
+                    name="professor_name"
+                    placeholder="e.g. Andrew Ng"
+                    value="{{ request.form.get('professor_name', '') }}"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="query">Search Query</label>
+                <input
+                    type="text"
+                    id="query"
+                    name="query"
+                    placeholder="e.g. deep learning for medical imaging"
+                    value="{{ request.form.get('query', '') }}"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn">Search</button>
+        </form>
+
+        <p class="note">
+            Note: scraping Google Scholar may take a moment and may require solving
+            a CAPTCHA in the browser window that opens.
+        </p>
+    </div>
+</body>
+</html>

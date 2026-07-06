@@ -1,0 +1,39 @@
+# --- Environment Variables ---
+.env
+
+# --- Google Drive & Sync ---
+# If your folder is named "Google Drive" or similar
+*Google*Drive*
+# General cloud sync files
+.DS_Store
+Icon?
+
+# --- Python / Flask ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.venv/
+build/
+dist/
+
+# --- Logs ---
+# You mentioned a logs/ directory in your README
+logs/*.log
+*.log
+
+# --- Selenium & Drivers ---
+# Even though you use webdriver-manager, sometimes logs or drivers appear
+chromedriver
+geckodriver.log
+ghostdriver.log
+
+# --- NLTK Data ---
+# If NLTK downloads its corpora inside your project folder
+nltk_data/
+
+# --- IDEs / Editors ---
+.vscode/
+.idea/
+*.swp

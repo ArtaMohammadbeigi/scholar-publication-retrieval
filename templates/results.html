@@ -1,0 +1,58 @@
+<!-- templates/results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results for {{ professor_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Results</h1>
+        <p class="subtitle">
+            Professor: <strong>{{ professor_name }}</strong> &middot;
+            Query: <strong>{{ query }}</strong>
+        </p>
+
+        <div class="meta-info">
+            <span>Publications scraped: {{ total_scraped }}</span>
+            <span>Citation data coverage: {{ "%.2f"|format(citation_coverage * 100) }}%</span>
+        </div>
+
+        {% if results %}
+        <table class="results-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Title</th>
+                    <th>Similarity</th>
+                    <th>Cited By</th>
+                    <th>Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in results %}
+                <tr>
+                    <td>{{ r.rank }}</td>
+                    <td>{{ r.title }}</td>
+                    <td>{{ "%.3f"|format(r.similarity_score) }}</td>
+                    <td>{{ r.cited_by }}</td>
+                    <td>
+                        {% if r.link %}
+                        <a href="{{ r.link }}" target="_blank" rel="noopener noreferrer">View</a>
+                        {% else %}
+                        N/A
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="no-results">No relevant publications found for this query.</p>
+        {% endif %}
+
+        <a href="{{ url_for('index') }}" class="btn back-btn">New Search</a>
+    </div>
+</body>
+</html>
