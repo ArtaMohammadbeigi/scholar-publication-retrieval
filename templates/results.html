@@ -26,7 +26,7 @@
                     <th>Rank</th>
                     <th>Title</th>
                     <th>Similarity</th>
-                    <th>Cited By</th>
+                    <th>Citation</th>
                     <th>Link</th>
                 </tr>
             </thead>
@@ -36,7 +36,7 @@
                     <td>{{ r.rank }}</td>
                     <td>{{ r.title }}</td>
                     <td>{{ "%.3f"|format(r.similarity_score) }}</td>
-                    <td>{{ r.cited_by }}</td>
+                    <td>{{ r.citation_count if r.citation_count is not none else 'N/A' }}</td>
                     <td>
                         {% if r.link %}
                         <a href="{{ r.link }}" target="_blank" rel="noopener noreferrer">View</a>
